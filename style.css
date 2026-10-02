@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #111827;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    background: #111827;
+    color: white;
+    padding: 24px 16px;
+    overflow-y: auto;
+}
+
+.logo {
+    padding: 0 12px 24px;
+    border-bottom: 1px solid #374151;
+}
+
+.logo h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.sidebar nav {
+    margin-top: 20px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 11px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #374151;
+    color: white;
+}
+
+.menu-title {
+    margin: 22px 12px 8px;
+    font-size: 11px;
+    color: #9ca3af;
+    letter-spacing: 1px;
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+    margin-left: 240px;
+    min-height: 100vh;
+}
+
+.topbar {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.topbar span {
+    color: #6b7280;
+}
+
+.content {
+    padding: 32px;
+}
+
+.content > h2 {
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-top: 0;
+}
+
+/* TOOL CARDS */
+
+.container {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.tool-card h2 {
+    margin-top: 0;
+}
+
+.tool-card p {
+    color: #6b7280;
+}
+
+.tool-card button {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #111827;
+    color: white;
+}
+
+.tool-card button:hover {
+    opacity: 0.85;
+}

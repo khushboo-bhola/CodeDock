@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>codeDock</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>codeDock</h2>
+        </div>
+
+        <nav>
+            <a href="#" class="active" data-tool="dashboard">Dashboard</a>
+
+            <p class="menu-title">ENCODING</p>
+            <a href="#" data-tool="base64">Base64</a>
+            <a href="#" data-tool="url">URL Encoder</a>
+            <a href="#" data-tool="jwt">JWT</a>
+
+            <p class="menu-title">GENERATORS</p>
+            <a href="#" data-tool="uuid">UUID</a>
+            <a href="#" data-tool="password">Password</a>
+            <a href="#" data-tool="qr">QR Generator</a>
+
+            <p class="menu-title">DEVELOPER</p>
+            <a href="#" data-tool="hmac">HMAC</a>
+            <a href="#" data-tool="timestamp">Timestamp</a>
+            <a href="#" data-tool="cron">Cron Builder</a>
+            <a href="#" data-tool="regex">Regex Tester</a>
+        </nav>
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <h1>Dashboard</h1>
+            <span>Developer Utilities</span>
+        </header>
+
+        <section class="content">
+
+            <h2>Tools</h2>
+            <p class="subtitle">Choose a developer utility to get started.</p>
+
+            <div class="container">
+
+                <div class="tool-card">
+                    <h2>Base64</h2>
+                    <p>Encode and decode Base64 text.</p>
+                    <button>Open Tool</button>
+                </div>
+
+                <div class="tool-card">
+                    <h2>JWT</h2>
+                    <p>Decode and inspect JWT tokens.</p>
+                    <button>Open Tool</button>
+                </div>
+
+                <div class="tool-card">
+                    <h2>UUID</h2>
+                    <p>Generate UUIDs quickly.</p>
+                    <button>Open Tool</button>
+                </div>
+
+                <div class="tool-card">
+                    <h2>URL Encoder</h2>
+                    <p>Encode and decode URLs.</p>
+                    <button>Open Tool</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
