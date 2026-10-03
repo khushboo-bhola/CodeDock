@@ -21,7 +21,6 @@ menuLinks.forEach(link => {
     });
 });
 
-
 function showDashboard() {
     content.innerHTML = `
         <h2>Tools</h2>
@@ -30,7 +29,6 @@ function showDashboard() {
         </p>
     `;
 }
-
 
 function showTool(tool) {
 
@@ -70,7 +68,6 @@ function showTool(tool) {
     `;
 }
 
-
 function encodeBase64Text() {
     const input = document.getElementById("base64Input").value;
 
@@ -81,7 +78,6 @@ function encodeBase64Text() {
     }
 }
 
-
 function decodeBase64Text() {
     const input = document.getElementById("base64Input").value;
 
@@ -91,7 +87,6 @@ function decodeBase64Text() {
         document.getElementById("base64Output").value = "Invalid Base64.";
     }
 }
-
 
 function clearBase64() {
     document.getElementById("base64Input").value = "";
