@@ -1,94 +1,221 @@
 const menuLinks = document.querySelectorAll(".sidebar nav a");
-const content = document.querySelector(".content");
+const toolContent = document.getElementById("toolContent");
+const pageTitle = document.getElementById("pageTitle");
+
+/* Sidebar navigation */
 
 menuLinks.forEach(link => {
-    link.addEventListener("click", function (event) {
+
+    link.addEventListener("click", event => {
+
         event.preventDefault();
 
-        menuLinks.forEach(item => {
-            item.classList.remove("active");
-        });
+        const tool = link.dataset.tool;
 
-        this.classList.add("active");
+        setActiveTool(link);
 
-        const tool = this.dataset.tool;
+        loadTool(tool);
 
-        if (tool === "dashboard") {
-            showDashboard();
-        } else {
-            showTool(tool);
-        }
     });
+
 });
 
-function showDashboard() {
-    content.innerHTML = `
-        <h2>Tools</h2>
-        <p class="subtitle">
-            Choose a developer utility to get started.
-        </p>
-    `;
-}
 
-function showTool(tool) {
+/* Dashboard card buttons */
 
-    if (tool === "base64") {
-        content.innerHTML = `
-            <h2>Base64 Encoder / Decoder</h2>
-            <p class="subtitle">Encode or decode Base64 text.</p>
+document.addEventListener("click", event => {
 
-            <div class="tool-panel">
+    const button = event.target.closest("[data-open-tool]");
 
-                <textarea
-                    id="base64Input"
-                    placeholder="Enter text or Base64..."
-                ></textarea>
-
-                <div class="tool-actions">
-                    <button onclick="encodeBase64Text()">Encode</button>
-                    <button onclick="decodeBase64Text()">Decode</button>
-                    <button onclick="clearBase64()">Clear</button>
-                </div>
-
-                <textarea
-                    id="base64Output"
-                    placeholder="Result..."
-                    readonly
-                ></textarea>
-
-            </div>
-        `;
-
+    if (!button) {
         return;
     }
 
-    content.innerHTML = `
-        <h2>${tool}</h2>
-        <p class="subtitle">${tool} tool is coming next.</p>
+    const tool = button.dataset.openTool;
+
+    const sidebarLink = document.querySelector(
+        `[data-tool="${tool}"]`
+    );
+
+    if (sidebarLink) {
+        setActiveTool(sidebarLink);
+    }
+
+    loadTool(tool);
+
+});
+
+
+/* Set active sidebar item */
+
+function setActiveTool(activeLink) {
+
+    menuLinks.forEach(link => {
+        link.classList.remove("active");
+    });
+
+    activeLink.classList.add("active");
+
+}
+
+
+/* Load selected tool */
+
+async function loadTool(tool) {
+
+    if (tool === "dashboard") {
+        loadDashboard();
+        return;
+    }
+
+    pageTitle.textContent = getToolTitle(tool);
+
+    try {
+
+        const response = await fetch(
+            `tools/${tool}/view.html`
+        );
+
+        if (!response.ok) {
+            throw new Error("Tool view not found.");
+        }
+
+        const html = await response.text();
+
+        toolContent.innerHTML = html;
+
+        await loadToolScript(tool);
+
+    } catch (error) {
+
+        toolContent.innerHTML = `
+            <h2>Tool Not Found</h2>
+
+            <p class="subtitle">
+                Unable to load the ${tool} tool.
+            </p>
+        `;
+
+        console.error(error);
+    }
+}
+
+
+/* Load tool JavaScript */
+
+function loadToolScript(tool) {
+
+    return new Promise((resolve, reject) => {
+
+        const script = document.createElement("script");
+
+        script.type = "module";
+        script.src = `tools/${tool}/view.js`;
+
+        script.onload = resolve;
+        script.onerror = reject;
+
+        document.body.appendChild(script);
+
+    });
+}
+
+
+/* Dashboard */
+
+function loadDashboard() {
+
+    pageTitle.textContent = "Dashboard";
+
+    toolContent.innerHTML = `
+        <h2>Welcome to codeDock</h2>
+
+        <p class="subtitle">
+            Simple developer utilities in one place.
+        </p>
+
+        <div class="container">
+
+            <div class="tool-card">
+
+                <h2>Base64</h2>
+
+                <p>
+                    Encode and decode Base64 text.
+                </p>
+
+                <button data-open-tool="base64">
+                    Open Tool
+                </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <h2>URL Encoder</h2>
+
+                <p>
+                    Encode and decode URL text.
+                </p>
+
+                <button data-open-tool="url">
+                    Open Tool
+                </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <h2>UUID</h2>
+
+                <p>
+                    Generate unique UUIDs.
+                </p>
+
+                <button data-open-tool="uuid">
+                    Open Tool
+                </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <h2>JWT</h2>
+
+                <p>
+                    Decode and inspect JWT tokens.
+                </p>
+
+                <button data-open-tool="jwt">
+                    Open Tool
+                </button>
+
+            </div>
+
+        </div>
     `;
 }
 
-function encodeBase64Text() {
-    const input = document.getElementById("base64Input").value;
 
-    try {
-        document.getElementById("base64Output").value = btoa(input);
-    } catch {
-        document.getElementById("base64Output").value = "Unable to encode.";
-    }
-}
+/* Tool titles */
 
-function decodeBase64Text() {
-    const input = document.getElementById("base64Input").value;
+function getToolTitle(tool) {
 
-    try {
-        document.getElementById("base64Output").value = atob(input);
-    } catch {
-        document.getElementById("base64Output").value = "Invalid Base64.";
-    }
-}
+    const titles = {
+        base64: "Base64",
+        url: "URL Encoder",
+        jwt: "JWT",
+        uuid: "UUID",
+        password: "Password Generator",
+        qr: "QR Generator",
+        hmac: "HMAC",
+        timestamp: "Timestamp",
+        cron: "Cron Builder",
+        regex: "Regex Tester"
+    };
 
-function clearBase64() {
-    document.getElementById("base64Input").value = "";
-    document.getElementById("base64Output").value = "";
+    return titles[tool] || "Developer Tool";
 }

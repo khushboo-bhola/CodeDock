@@ -1,0 +1,56 @@
+<h2>HMAC Generator</h2>
+
+<p class="subtitle">
+    Generate an HMAC hash from a message and secret key.
+</p>
+
+<div class="tool-panel">
+
+    <label for="hmacMessage">
+        Message
+    </label>
+
+    <textarea
+        id="hmacMessage"
+        placeholder="Enter message..."
+    ></textarea>
+
+    <label for="hmacSecret">
+        Secret Key
+    </label>
+
+    <input
+        type="text"
+        id="hmacSecret"
+        placeholder="Enter secret key..."
+    >
+
+    <label for="hmacAlgorithm">
+        Algorithm
+    </label>
+
+    <select id="hmacAlgorithm">
+        <option value="SHA-256">SHA-256</option>
+        <option value="SHA-384">SHA-384</option>
+        <option value="SHA-512">SHA-512</option>
+    </select>
+
+    <div class="tool-actions">
+
+        <button id="generateHmacButton">
+            Generate HMAC
+        </button>
+
+        <button id="clearHmacButton">
+            Clear
+        </button>
+
+    </div>
+
+    <textarea
+        id="hmacOutput"
+        placeholder="HMAC result..."
+        readonly
+    ></textarea>
+
+</div>

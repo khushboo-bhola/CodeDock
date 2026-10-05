@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,97 +19,152 @@
         </div>
 
         <nav>
+
             <a href="#" class="active" data-tool="dashboard">
-                🏠 <span>Dashboard</span>
+                🏠
+                <span>Dashboard</span>
             </a>
 
             <p class="menu-title">ENCODING</p>
 
             <a href="#" data-tool="base64">
-                🔐 <span>Base64</span>
+                🔐
+                <span>Base64</span>
             </a>
 
             <a href="#" data-tool="url">
-                🔗 <span>URL Encoder</span>
+                🔗
+                <span>URL Encoder</span>
             </a>
 
             <a href="#" data-tool="jwt">
-                🎫 <span>JWT</span>
+                🎫
+                <span>JWT</span>
             </a>
 
             <p class="menu-title">GENERATORS</p>
 
             <a href="#" data-tool="uuid">
-                🆔 <span>UUID</span>
+                🆔
+                <span>UUID</span>
             </a>
 
             <a href="#" data-tool="password">
-                🔑 <span>Password</span>
+                🔑
+                <span>Password</span>
             </a>
 
             <a href="#" data-tool="qr">
-                ▦ <span>QR Generator</span>
+                ▦
+                <span>QR Generator</span>
             </a>
 
             <p class="menu-title">DEVELOPER</p>
 
             <a href="#" data-tool="hmac">
-                #️⃣ <span>HMAC</span>
+                #️⃣
+                <span>HMAC</span>
             </a>
 
             <a href="#" data-tool="timestamp">
-                🕐 <span>Timestamp</span>
+                🕐
+                <span>Timestamp</span>
             </a>
 
             <a href="#" data-tool="cron">
-                ⏱️ <span>Cron Builder</span>
+                ⏱️
+                <span>Cron Builder</span>
             </a>
 
             <a href="#" data-tool="regex">
-                🔎 <span>Regex Tester</span>
+                🔎
+                <span>Regex Tester</span>
             </a>
+
         </nav>
 
     </aside>
 
+
     <main class="main-content">
 
         <header class="topbar">
-            <h1>Dashboard</h1>
+
+            <h1 id="pageTitle">Dashboard</h1>
+
             <span>Developer Utilities</span>
+
         </header>
 
-        <section class="content">
 
-            <h2>Tools</h2>
+        <section class="content" id="toolContent">
+
+            <h2>Welcome to codeDock</h2>
+
             <p class="subtitle">
-                Choose a developer utility to get started.
+                Simple developer utilities in one place.
             </p>
+
 
             <div class="container">
 
                 <div class="tool-card">
+
                     <h2>Base64</h2>
-                    <p>Encode and decode Base64 text.</p>
-                    <button>Open Tool</button>
+
+                    <p>
+                        Encode and decode Base64 text.
+                    </p>
+
+                    <button data-open-tool="base64">
+                        Open Tool
+                    </button>
+
                 </div>
 
-                <div class="tool-card">
-                    <h2>JWT</h2>
-                    <p>Decode and inspect JWT tokens.</p>
-                    <button>Open Tool</button>
-                </div>
 
                 <div class="tool-card">
-                    <h2>UUID</h2>
-                    <p>Generate UUIDs quickly.</p>
-                    <button>Open Tool</button>
-                </div>
 
-                <div class="tool-card">
                     <h2>URL Encoder</h2>
-                    <p>Encode and decode URLs.</p>
-                    <button>Open Tool</button>
+
+                    <p>
+                        Encode and decode URL text.
+                    </p>
+
+                    <button data-open-tool="url">
+                        Open Tool
+                    </button>
+
+                </div>
+
+
+                <div class="tool-card">
+
+                    <h2>UUID</h2>
+
+                    <p>
+                        Generate unique UUIDs.
+                    </p>
+
+                    <button data-open-tool="uuid">
+                        Open Tool
+                    </button>
+
+                </div>
+
+
+                <div class="tool-card">
+
+                    <h2>JWT</h2>
+
+                    <p>
+                        Decode and inspect JWT tokens.
+                    </p>
+
+                    <button data-open-tool="jwt">
+                        Open Tool
+                    </button>
+
                 </div>
 
             </div>
@@ -117,7 +173,10 @@
 
     </main>
 
+    
+   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script src="script.js"></script>
 
 </body>
+
 </html>
