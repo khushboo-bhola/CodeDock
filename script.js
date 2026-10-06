@@ -2,37 +2,22 @@ const menuLinks = document.querySelectorAll(".sidebar nav a");
 const toolContent = document.getElementById("toolContent");
 const pageTitle = document.getElementById("pageTitle");
 
-/* Sidebar navigation */
-
 menuLinks.forEach(link => {
-
     link.addEventListener("click", event => {
-
         event.preventDefault();
-
         const tool = link.dataset.tool;
-
         setActiveTool(link);
-
         loadTool(tool);
-
     });
-
 });
 
-
-/* Dashboard card buttons */
-
 document.addEventListener("click", event => {
-
     const button = event.target.closest("[data-open-tool]");
 
     if (!button) {
         return;
     }
-
     const tool = button.dataset.openTool;
-
     const sidebarLink = document.querySelector(
         `[data-tool="${tool}"]`
     );
@@ -42,27 +27,16 @@ document.addEventListener("click", event => {
     }
 
     loadTool(tool);
-
 });
 
-
-/* Set active sidebar item */
-
 function setActiveTool(activeLink) {
-
     menuLinks.forEach(link => {
         link.classList.remove("active");
     });
-
     activeLink.classList.add("active");
-
 }
 
-
-/* Load selected tool */
-
 async function loadTool(tool) {
-
     if (tool === "dashboard") {
         loadDashboard();
         return;
@@ -71,26 +45,19 @@ async function loadTool(tool) {
     pageTitle.textContent = getToolTitle(tool);
 
     try {
-
         const response = await fetch(
             `tools/${tool}/view.html`
         );
-
         if (!response.ok) {
             throw new Error("Tool view not found.");
         }
-
         const html = await response.text();
-
         toolContent.innerHTML = html;
-
         await loadToolScript(tool);
-
-    } catch (error) {
-
+    } 
+    catch (error) {
         toolContent.innerHTML = `
             <h2>Tool Not Found</h2>
-
             <p class="subtitle">
                 Unable to load the ${tool} tool.
             </p>
@@ -100,110 +67,72 @@ async function loadTool(tool) {
     }
 }
 
-
-/* Load tool JavaScript */
-
 function loadToolScript(tool) {
-
     return new Promise((resolve, reject) => {
-
         const script = document.createElement("script");
-
         script.type = "module";
         script.src = `tools/${tool}/view.js`;
-
         script.onload = resolve;
         script.onerror = reject;
 
         document.body.appendChild(script);
-
     });
 }
 
-
-/* Dashboard */
-
 function loadDashboard() {
-
     pageTitle.textContent = "Dashboard";
 
     toolContent.innerHTML = `
         <h2>Welcome to codeDock</h2>
-
         <p class="subtitle">
             Simple developer utilities in one place.
         </p>
 
         <div class="container">
-
             <div class="tool-card">
-
                 <h2>Base64</h2>
-
                 <p>
                     Encode and decode Base64 text.
                 </p>
-
                 <button data-open-tool="base64">
                     Open Tool
                 </button>
-
             </div>
 
-
             <div class="tool-card">
-
                 <h2>URL Encoder</h2>
-
                 <p>
                     Encode and decode URL text.
                 </p>
-
                 <button data-open-tool="url">
                     Open Tool
                 </button>
-
             </div>
 
-
             <div class="tool-card">
-
                 <h2>UUID</h2>
-
                 <p>
                     Generate unique UUIDs.
                 </p>
-
                 <button data-open-tool="uuid">
                     Open Tool
                 </button>
-
             </div>
 
-
             <div class="tool-card">
-
                 <h2>JWT</h2>
-
                 <p>
                     Decode and inspect JWT tokens.
                 </p>
-
                 <button data-open-tool="jwt">
                     Open Tool
                 </button>
-
             </div>
-
         </div>
     `;
 }
 
-
-/* Tool titles */
-
 function getToolTitle(tool) {
-
     const titles = {
         base64: "Base64",
         url: "URL Encoder",

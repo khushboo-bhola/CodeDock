@@ -1,6 +1,5 @@
 const lengthInput = document.getElementById("passwordLength");
 const output = document.getElementById("passwordOutput");
-
 const generateButton = document.getElementById("generatePasswordButton");
 const clearButton = document.getElementById("clearPasswordButton");
 
@@ -12,17 +11,13 @@ const characters =
 
 generateButton.addEventListener("click", () => {
     const length = Number(lengthInput.value);
-
     let password = "";
-
     for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(
             Math.random() * characters.length
         );
-
         password += characters[randomIndex];
-    }
-
+    } 
     output.value = password;
 });
 

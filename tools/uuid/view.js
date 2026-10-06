@@ -1,5 +1,4 @@
 const output = document.getElementById("uuidOutput");
-
 const generateButton = document.getElementById("generateUuidButton");
 const clearButton = document.getElementById("clearUuidButton");
 

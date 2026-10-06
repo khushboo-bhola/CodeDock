@@ -1,6 +1,5 @@
 const input = document.getElementById("urlInput");
 const output = document.getElementById("urlOutput");
-
 const encodeButton = document.getElementById("encodeUrlButton");
 const decodeButton = document.getElementById("decodeUrlButton");
 const clearButton = document.getElementById("clearUrlButton");
