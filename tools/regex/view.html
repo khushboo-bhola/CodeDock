@@ -1,0 +1,69 @@
+<h2>Regex Tester</h2>
+
+<p class="subtitle">
+    Test regular expressions against your text.
+</p>
+
+<div class="tool-panel">
+    <div class="form-group">
+        <label for="regexInput">Regular Expression</label>
+
+        <input
+            type="text"
+            id="regexInput"
+            placeholder="Example: ^[a-zA-Z]+$"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>Flags</label>
+
+        <div class="regex-flags">
+            <label>
+                <input type="checkbox" id="globalFlag">
+                Global (g)
+            </label>
+
+            <label>
+                <input type="checkbox" id="ignoreCaseFlag">
+                Ignore Case (i)
+            </label>
+
+            <label>
+                <input type="checkbox" id="multilineFlag">
+                Multiline (m)
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="regexText">Test Text</label>
+
+        <textarea
+            id="regexText"
+            placeholder="Enter text to test..."
+        ></textarea>
+    </div>
+
+    <div class="tool-actions">
+        <button id="testRegexButton">
+            Test Regex
+        </button>
+
+        <button id="clearRegexButton">
+            Clear
+        </button>
+    </div>
+
+    <div class="regex-result">
+        <h3>Result</h3>
+
+        <p id="regexStatus">
+            Enter a regex and test text.
+        </p>
+
+        <p id="matchCount"></p>
+
+        <div id="regexMatches"></div>
+    </div>
+</div>
