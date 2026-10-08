@@ -91,6 +91,7 @@ function loadDashboard() {
 
         <div class="container">
             <div class="tool-card">
+            <span class="tool-category">ENCODING</span>
                 <h2>Base64</h2>
                 <p>
                     Encode and decode Base64 text.
@@ -101,6 +102,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">ENCODNG</span>
                 <h2>URL Encoder</h2>
                 <p>
                     Encode and decode URL text.
@@ -111,6 +113,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">SECURITY</span>
                 <h2>JWT</h2>
                 <p>
                     Decode and inspect JWT tokens.
@@ -121,6 +124,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">GENERATOR</span>
                 <h2>UUID</h2>
                 <p>
                     Generate unique UUIDs.
@@ -131,6 +135,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">GENERATOR</span>
                 <h2>Password Generator</h2>
                 <p>
                     Generate secure random passwords.
@@ -141,6 +146,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">GENERATOR</span>
                 <h2>QR Generator</h2>
                 <p>
                     Generate QR codes from text or URLs.
@@ -151,6 +157,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">SECURITY</span>
                 <h2>HMAC</h2>
                 <p>
                     Generate HMAC signatures.
@@ -161,6 +168,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">DEVELOPER</span>
                 <h2>Timestamp</h2>
                 <p>
                     Convert and work with timestamps.
@@ -171,6 +179,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">DEVELOPER</span>
                 <h2>Cron Builder</h2>
                 <p>
                     Create and understand cron expressions.
@@ -181,6 +190,7 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+            <span class="tool-category">DEVELOPER</span>
                 <h2>Regex Tester</h2>
                 <p>
                     Test regular expressions against text.
