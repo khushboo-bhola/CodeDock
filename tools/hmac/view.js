@@ -4,6 +4,7 @@ const algorithmInput = document.getElementById("hmacAlgorithm");
 const output = document.getElementById("hmacOutput");
 
 const generateButton = document.getElementById("generateHmacButton");
+const copyButton = document.getElementById("copyHmacButton");
 const clearButton = document.getElementById("clearHmacButton");
 
 generateButton.addEventListener("click", async () => {
@@ -41,6 +42,21 @@ generateButton.addEventListener("click", async () => {
         .map(byte => byte.toString(16).padStart(2, "0"))
         .join("");
 });
+
+copyButton.addEventListener("click", async () => {
+    if (!output.value) {
+        return;
+    }
+
+    await navigator.clipboard.writeText(output.value);
+
+    copyButton.textContent = "Copied";
+
+    setTimeout(() => {
+        copyButton.textContent = "Copy";
+    }, 1500);
+});
+
 
 clearButton.addEventListener("click", () => {
     messageInput.value = "";
