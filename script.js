@@ -82,8 +82,9 @@ function loadToolScript(tool) {
 function loadDashboard() {
     pageTitle.textContent = "Dashboard";
 
-    toolContent.innerHTML = `
+    const newLocal = toolContent.innerHTML = `
         <h2>Welcome to codeDock</h2>
+
         <p class="subtitle">
             Simple developer utilities in one place.
         </p>
@@ -110,6 +111,16 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
+                <h2>JWT</h2>
+                <p>
+                    Decode and inspect JWT tokens.
+                </p>
+                <button data-open-tool="jwt">
+                    Open Tool
+                </button>
+            </div>
+
+            <div class="tool-card">
                 <h2>UUID</h2>
                 <p>
                     Generate unique UUIDs.
@@ -120,11 +131,61 @@ function loadDashboard() {
             </div>
 
             <div class="tool-card">
-                <h2>JWT</h2>
+                <h2>Password Generator</h2>
                 <p>
-                    Decode and inspect JWT tokens.
+                    Generate secure random passwords.
                 </p>
-                <button data-open-tool="jwt">
+                <button data-open-tool="password">
+                    Open Tool
+                </button>
+            </div>
+
+            <div class="tool-card">
+                <h2>QR Generator</h2>
+                <p>
+                    Generate QR codes from text or URLs.
+                </p>
+                <button data-open-tool="qr">
+                    Open Tool
+                </button>
+            </div>
+
+            <div class="tool-card">
+                <h2>HMAC</h2>
+                <p>
+                    Generate HMAC signatures.
+                </p>
+                <button data-open-tool="hmac">
+                    Open Tool
+                </button>
+            </div>
+
+            <div class="tool-card">
+                <h2>Timestamp</h2>
+                <p>
+                    Convert and work with timestamps.
+                </p>
+                <button data-open-tool="timestamp">
+                    Open Tool
+                </button>
+            </div>
+
+            <div class="tool-card">
+                <h2>Cron Builder</h2>
+                <p>
+                    Create and understand cron expressions.
+                </p>
+                <button data-open-tool="cron">
+                    Open Tool
+                </button>
+            </div>
+
+            <div class="tool-card">
+                <h2>Regex Tester</h2>
+                <p>
+                    Test regular expressions against text.
+                </p>
+                <button data-open-tool="regex">
                     Open Tool
                 </button>
             </div>
@@ -146,5 +207,8 @@ function getToolTitle(tool) {
         regex: "Regex Tester"
     };
 
+    
+
     return titles[tool] || "Developer Tool";
 }
+loadDashboard();
