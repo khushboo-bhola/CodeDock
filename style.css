@@ -657,7 +657,7 @@ body {
     .sidebar nav a {
         justify-content: center;
         padding: 11px 8px;
-        font-size: 0;
+        font-size: 20px;
     }
 
     .sidebar nav a span {
@@ -704,3 +704,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
