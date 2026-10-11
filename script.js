@@ -67,17 +67,24 @@ async function loadTool(tool) {
     }
 }
 
+
 function loadToolScript(tool) {
     return new Promise((resolve, reject) => {
+        document.querySelectorAll("script[data-tool-script]").forEach(script => {
+            script.remove();
+        });
+
         const script = document.createElement("script");
         script.type = "module";
-        script.src = `tools/${tool}/view.js`;
+        script.dataset.toolScript = tool;
+        script.src = `tools/${tool}/view.js?v=${Date.now()}`;
         script.onload = resolve;
         script.onerror = reject;
 
         document.body.appendChild(script);
     });
 }
+
 
 function loadDashboard() {
     pageTitle.textContent = "Dashboard";

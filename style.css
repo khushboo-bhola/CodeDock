@@ -713,3 +713,34 @@ body {
     font-weight: 700;
     letter-spacing: 1.4px;
 }
+
+
+.regex-flags {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.regex-flags label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-soft);
+    cursor: pointer;
+    width: fit-content;
+}
+
+.regex-flags input[type="checkbox"] {
+    appearance: auto;
+    -webkit-appearance: checkbox;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    accent-color: var(--orange);
+    cursor: pointer;
+}
